@@ -1,5 +1,5 @@
+// array to store names to be picked from
 let names = [];
-
 // click event for enter names button
 $('#nameBtn').click(function () {
     // getting the entered name
@@ -27,7 +27,6 @@ $('#nameBtn').click(function () {
 $('#pickName').click(function () {
     // Picks a random name
     let randomName = names[Math.floor(Math.random() * names.length)];
-    
     // goes through each named button
     $('.nameChoices').each(function(){
         if (randomName !== this.id) {
@@ -38,7 +37,6 @@ $('#pickName').click(function () {
             // if this person was picked turn the button green
             $(this).removeClass('btn-secondary');
             $(this).addClass('btn-success')
-
         }
     })
 
