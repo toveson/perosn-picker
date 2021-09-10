@@ -28,7 +28,7 @@ $('#pickName').click(function () {
     // Picks a random name
     let randomName = names[Math.floor(Math.random() * names.length)];
     // goes through each named button
-    $('.nameChoices').each(function(){
+    $('.nameChoices').each(function () {
         if (randomName !== this.id) {
             // if this person wasn't picked turn the button red
             $(this).removeClass('btn-secondary');
@@ -40,18 +40,17 @@ $('#pickName').click(function () {
         }
     });
 
-    $('#pickName').addClass('disabled').attr('disabled')
-
     console.log('picked: ', randomName);
 });
 
 // click event for reset button
 $('#reset').click(function () {
     // goes through each named button
-    $('.nameChoices').each(function(){
-        // change named button color to grey
+    $('.nameChoices').each(function () {
+        // remove red then green color from button
         $(this).removeClass('btn-danger');
         $(this).removeClass('btn-success');
+        // change named button color to grey
         $(this).addClass('btn-secondary');
-    })
+    });
 })
