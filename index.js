@@ -1,20 +1,21 @@
 // array to store names to be picked from
 let names = [];
+let count = 0;
 // click event for enter names button
 $('#nameBtn').click(function () {
     // getting the entered name
     let enteredName = $('#nameInput').val();
     // saving entered name to names array
-    names.push(enteredName);
+    names.push({name: enteredName, timesPicked: 0});
     // clearing input field
     $('#nameInput').val('');
     // Creates dropdown for the last name entered
     $('#names').append(
-        '<button class="btn btn-secondary dropdown-toggle nameChoices" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="' + names[names.length - 1] + '">' +
-        names[names.length - 1] +
+        '<button class="btn btn-secondary dropdown-toggle nameChoices" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="' + names[names.length - 1].name + '">' +
+        names[names.length - 1].name +
         '</button>' +
         '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"' + '>' +
-        '<a class="dropdown-item" href="#"> Times picked: 0 </a + >' +
+        '<a class="dropdown-item" href="#"> Times picked: </a + >' +
         // <a class="dropdown-item" href="#">Another action</a>
         '</div>' +
         '</div >'
@@ -25,11 +26,13 @@ $('#nameBtn').click(function () {
 
 // click event for pick a name button
 $('#pickName').click(function () {
+    // adds to count tracking how many times a name has been picked
+    count++;
     // Picks a random name
-    let randomName = names[Math.floor(Math.random() * names.length)];
+    let randomNumber = names[Math.floor(Math.random() * names.length)]
     // goes through each named button
     $('.nameChoices').each(function () {
-        if (randomName !== this.id) {
+        if (this.id !== randomNumber.name) {
             // if this person wasn't picked turn the button red
             $(this).removeClass('btn-secondary');
             $(this).addClass('btn-danger');
@@ -37,10 +40,12 @@ $('#pickName').click(function () {
             // if this person was picked turn the button green
             $(this).removeClass('btn-secondary');
             $(this).addClass('btn-success');
+            randomNumber.timesPicked++
         }
     });
 
-    console.log('picked: ', randomName);
+    console.log('picked: ', randomNumber.name);
+    console.log('count: ', count);
 });
 
 // click event for reset button
