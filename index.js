@@ -1,12 +1,12 @@
 // array to store names to be picked from
 let names = [];
-let count = 0;
-// click event for enter names button
+let count = 1;
+// click event for entering names button
 $('#nameBtn').click(function () {
     // getting the entered name
     let enteredName = $('#nameInput').val();
     // saving entered name to names array
-    names.push({name: enteredName, timesPicked: 0});
+    names.push({ name: enteredName, timesPicked: 0 });
     // clearing input field
     $('#nameInput').val('');
     // Creates dropdown for the last name entered
@@ -20,14 +20,27 @@ $('#nameBtn').click(function () {
         '</div>' +
         '</div >'
     );
-
     console.log(names);
 });
 
-// click event for pick a name button
+// click event for picking a random name
 $('#pickName').click(function () {
     // adds to count tracking how many times a name has been picked
     count++;
+
+    let pickingFrom = [];
+
+    // increases odds of people picked fewer times total to be picked
+    names.forEach(names => {
+        let timesToAdd = count - names.timesPicked;
+        if (count > timesToAdd) {
+            for (let i = 0; i < timesToAdd; i++) {
+                pickingFrom.push(names.name);
+            }
+        }
+    });
+    console.log(pickingFrom);
+
     // Picks a random name
     let randomNumber = names[Math.floor(Math.random() * names.length)]
     // goes through each named button
@@ -43,9 +56,8 @@ $('#pickName').click(function () {
             randomNumber.timesPicked++
         }
     });
-
-    console.log('picked: ', randomNumber.name);
-    console.log('count: ', count);
+    // console.log('picked: ', randomNumber.name);
+    // console.log('count: ', count);
 });
 
 // click event for reset button
