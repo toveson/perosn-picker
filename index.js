@@ -1,6 +1,6 @@
 // array to store names to be picked from
 let names = [];
-let count = 1;
+let count = 0;
 // click event for entering names button
 $('#nameBtn').click(function () {
     // getting the entered name
@@ -33,7 +33,7 @@ $('#pickName').click(function () {
     // increases odds of people picked fewer times total to be picked
     names.forEach(names => {
         let timesToAdd = count - names.timesPicked;
-        if (count > timesToAdd) {
+        if (count >= timesToAdd) {
             for (let i = 0; i < timesToAdd; i++) {
                 pickingFrom.push(names.name);
             }
