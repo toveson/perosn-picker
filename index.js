@@ -27,7 +27,7 @@ $('#nameBtn').click(function () {
 $('#pickName').click(function () {
     // adds to count tracking how many times a name has been picked
     count++;
-
+    // used to pick a person
     let pickingFrom = [];
 
     // increases odds of people picked fewer times total to be picked
@@ -45,19 +45,19 @@ $('#pickName').click(function () {
     // shuffles pickingFrom before choosing a person using Fisher-Yates Shuffle Algorithm
     // great visualization of how this algorithm works https://bost.ocks.org/mike/shuffle/
     let i = pickingFrom.length, j, temp;
-    while(--i > 0){
+    while (--i > 0) {
         j = Math.floor(Math.random() * (i + 1));
         temp = pickingFrom[j];
         pickingFrom[j] = pickingFrom[i];
         pickingFrom[i] = temp;
-    }
+    };
     console.log('shuffled: ', pickingFrom);
-    
+
     // Picks a random name
-    let randomNumber = names[Math.floor(Math.random() * names.length)]
+    let randomChoice = pickingFrom[Math.floor(Math.random() * pickingFrom.length)]
     // goes through each named button
     $('.nameChoices').each(function () {
-        if (this.id !== randomNumber.name) {
+        if (this.id !== randomChoice) {
             // if this person wasn't picked turn the button red
             $(this).removeClass('btn-secondary');
             $(this).addClass('btn-danger');
@@ -65,11 +65,16 @@ $('#pickName').click(function () {
             // if this person was picked turn the button green
             $(this).removeClass('btn-secondary');
             $(this).addClass('btn-success');
-            randomNumber.timesPicked++
+            // finds the correct person in the names array and adds to their timesPicked
+            for (let i = 0; i < names.length; i++) {
+                if (names[i].name == randomChoice ) {
+                    names[i].timesPicked++
+                };
+            };
         }
     });
-    // console.log('picked: ', randomNumber.name);
-    // console.log('count: ', count);
+    console.log('picked: ', randomChoice);
+    console.log('count: ', count);
 });
 
 // click event for reset button
@@ -82,4 +87,4 @@ $('#reset').click(function () {
         // change named button color to grey
         $(this).addClass('btn-secondary');
     });
-})
+});
