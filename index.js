@@ -44,6 +44,7 @@ $('#pickName').click(function () {
 
     // shuffles pickingFrom before choosing a person using Fisher-Yates Shuffle Algorithm
     // great visualization of how this algorithm works https://bost.ocks.org/mike/shuffle/
+    // good visualization and explanation on how to implement  
     let i = pickingFrom.length, j, temp;
     while (--i > 0) {
         j = Math.floor(Math.random() * (i + 1));
@@ -73,6 +74,7 @@ $('#pickName').click(function () {
             };
         }
     });
+    $('#pickName').addClass("disabled").prop("disabled", true);
     console.log('picked: ', randomChoice);
     console.log('count: ', count);
 });
@@ -87,4 +89,5 @@ $('#reset').click(function () {
         // change named button color to grey
         $(this).addClass('btn-secondary');
     });
+    $('#pickName').removeClass('disabled').prop('disabled', false);
 });
