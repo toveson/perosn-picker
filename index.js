@@ -1,10 +1,10 @@
 // array to store names to be picked from
-let names = [];
+const names = [];
 let count = 0;
 // click event for entering names button
 $('#nameBtn').click(function () {
     // getting the entered name
-    let enteredName = $('#nameInput').val();
+    const enteredName = $('#nameInput').val();
     // saving entered name to names array
     names.push({ name: enteredName, timesPicked: 0 });
     // clearing input field
@@ -32,7 +32,7 @@ $('#pickName').click(function () {
 
     // increases odds of people picked fewer times total to be picked
     names.forEach(names => {
-        let timesToAdd = count - names.timesPicked;
+        const timesToAdd = count - names.timesPicked;
         if (count >= timesToAdd) {
             // adds name to array x times, depending on how many times it's been picked before
             for (let i = 0; i < timesToAdd; i++) {
@@ -55,7 +55,7 @@ $('#pickName').click(function () {
     console.log('shuffled: ', pickingFrom);
 
     // Picks a random name
-    let randomChoice = pickingFrom[Math.floor(Math.random() * pickingFrom.length)]
+    const randomChoice = pickingFrom[Math.floor(Math.random() * pickingFrom.length)];
     // goes through each named button
     $('.nameChoices').each(function () {
         if (this.id !== randomChoice) {
