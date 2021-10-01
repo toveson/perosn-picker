@@ -1,1 +1,1 @@
-# perosn-picker
+# person-picker
