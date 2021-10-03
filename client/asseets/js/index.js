@@ -40,7 +40,7 @@ $('#pickName').click(function () {
             }
         }
     });
-    console.log(pickingFrom);
+    // console.log(pickingFrom);
 
     // shuffles pickingFrom before choosing a person using Fisher-Yates Shuffle Algorithm
     // great visualization of how this algorithm works https://bost.ocks.org/mike/shuffle/
