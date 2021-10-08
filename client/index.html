@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A simple random picker that can pick the same thing twice but is less likely to do so">
+    <meta name="description"
+        content="A simple random picker that can pick the same thing twice but is less likely to do so">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -15,7 +16,7 @@
 
 <body class="content">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <a class="navbar-brand nav-item nav-link ml-auto" href="index.html">Person Picker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,34 +25,47 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link ml-auto active" href="index.html">| Home |</a>
-                <!-- <a class="nav-item nav-link ml-auto" href="">future view 1</a>
-                <a class="nav-item nav-link ml-auto" href="">future view 2</a> -->
+                <a class="nav-item nav-link ml-auto" href="">future page 1</a>
+                <a class="nav-item nav-link ml-auto" href="">future page 2</a>
             </div>
         </div>
     </nav>
 
     <div class="container pt-5">
+
+        <div class="row input-group">
+            <textarea class="form-control" aria-label="With textarea" id="nameInput"
+                placeholder="Enter name"></textarea>
+        </div>
+
+        <div class="row d-flex justify-content-end">
+            <button type="button" class="btn btn-primary btn-lg mt-2" id="nameBtn">
+                Enter Names
+            </button>
+        </div>
+
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="row" id="names">
+            <!-- Names will end up here -->
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+
         <div class="row">
-            <div class="col input-group">
-                <textarea class="form-control" aria-label="With textarea" id="nameInput"
-                    placeholder="Enter name"></textarea>
+            <div class="col">
+                <button type="button" class="btn btn-primary btn-lg mt-2 " id="pickName">
+                    Pick a Name
+                </button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary btn-lg mt-2" id="reset">
+                    Reset
+                </button>
             </div>
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-primary btn-lg float-left mt-2 float-right" id="nameBtn">Enter Names</button>
-        </div>
-    </div>
-
-    <div class="container row content-center" id="names">
-        <!-- Names will end up here -->
-    </div>
-
-    <div class="container row">
-        <button type="button" class="btn btn-primary btn-lg float-left mt-2 float-right" id="pickName">Pick a
-            Name</button>
-    </div>
-    <div class="container row">
-        <button type="button" class="btn btn-primary btn-lg float-left mt-2 float-right" id="reset">Reset</button>
     </div>
 
     <!-- jQuery -->
@@ -61,7 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
+    <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>

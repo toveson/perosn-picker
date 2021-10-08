@@ -8,6 +8,6 @@ app.get('/', (req, res) => {
   res.render('../client/index.html');
 });
 
-app.listen(port, () => {
-  console.log(PORT, () => console.log('Listening on port %s. Visit http://localhost:%s/ in your browser.', PORT, PORT))
-});
+app.listen(port,
+  console.log(`Listening on port ${port}. Visit http://localhost:${port}/ in your browser.`)
+);

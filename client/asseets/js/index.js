@@ -11,14 +11,12 @@ $('#nameBtn').click(function () {
     $('#nameInput').val('');
     // Creates dropdown button for the last name entered
     $('#names').append(
-        '<button class="btn btn-secondary dropdown-toggle nameChoices" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="' + names[names.length - 1].name + '">' +
-        names[names.length - 1].name +
-        '</button>' +
-        '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"' + '>' +
-        '<a class="dropdown-item" href="#"> Times picked: </a + >' +
-        // <a class="dropdown-item" href="#">Another action</a>
-        '</div>' +
-        '</div >'
+        `<button class="btn btn-secondary btn-lg dropdown-toggle col m-1 nameChoices" type="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" id="${names[names.length - 1].name}">
+            ${names[names.length - 1].name}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item" id="${names[names.length - 1].name}TimesPicked"> Times picked: ${names[names.length - 1].timesPicked}</div>
+        </div>`
     );
     console.log(names);
 });
@@ -32,15 +30,17 @@ $('#pickName').click(function () {
 
     // increases odds of people picked fewer times total to be picked
     names.forEach(names => {
+        // takes the number of times pick a name button has been clicked and minuses the times each name has been picked for the loop
         const timesToAdd = count - names.timesPicked;
         if (count >= timesToAdd) {
+            // console.log('timesToAdd: ', timesToAdd)
             // adds name to array x times, depending on how many times it's been picked before
             for (let i = 0; i < timesToAdd; i++) {
                 pickingFrom.push(names.name);
             }
         }
     });
-    // console.log(pickingFrom);
+    // console.log('pre shuffle: ', pickingFrom);
 
     // shuffles pickingFrom before choosing a person using Fisher-Yates Shuffle Algorithm
     // great visualization of how this algorithm works https://bost.ocks.org/mike/shuffle/
@@ -52,7 +52,7 @@ $('#pickName').click(function () {
         pickingFrom[j] = pickingFrom[i];
         pickingFrom[i] = temp;
     };
-    console.log('shuffled: ', pickingFrom);
+    // console.log('shuffled: ', pickingFrom);
 
     // Picks a random name
     const randomChoice = pickingFrom[Math.floor(Math.random() * pickingFrom.length)];
@@ -68,15 +68,21 @@ $('#pickName').click(function () {
             $(this).addClass('btn-success');
             // finds the correct person in the names array and adds to their timesPicked
             for (let i = 0; i < names.length; i++) {
-                if (names[i].name == randomChoice ) {
-                    names[i].timesPicked++
+                if (names[i].name == randomChoice) {
+                    names[i].timesPicked++;
                 };
             };
+            // const winner = this.id + 'TimesPicked';
+            // console.log('winner name: ', winner);
         }
     });
-    $('#pickName').addClass("disabled").prop("disabled", true);
-    console.log('picked: ', randomChoice);
-    console.log('count: ', count);
+    // add logic to update times picked on dropdown of the name button here
+    // console.log('winner: ', document.getElementById(winner));
+    // $('#'+ winner +'').innerText = `Times picked: ${names[i].timesPicked}`;
+    // document.getElementById(winner).innerText = `Times picked: ${names[i].timesPicked}`;
+    // $('#pickName').addClass("disabled").prop("disabled", true);
+    // console.log('picked: ', randomChoice);
+    // console.log('count: ', count);
 });
 
 // click event for reset button
