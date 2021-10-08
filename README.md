@@ -6,8 +6,7 @@ A simple app that allows the user to enter names, submit them, get a random name
 
 
 <!-- need to update site once it's live -->
-Link to live site: Site is not live at this point in development
-<!-- [Random Person Picker]() -->
+Link to live site: [Person Picker](https://person-picker.herokuapp.com/)
 
 <!-- ![portfolio](./src/img/portfolio-landing-page.png) -->
 
