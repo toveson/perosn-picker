@@ -80,9 +80,14 @@ $('#pickName').click(function () {
     // console.log('winner: ', document.getElementById(winner));
     // $('#'+ winner +'').innerText = `Times picked: ${names[i].timesPicked}`;
     // document.getElementById(winner).innerText = `Times picked: ${names[i].timesPicked}`;
-    // $('#pickName').addClass("disabled").prop("disabled", true);
     // console.log('picked: ', randomChoice);
     // console.log('count: ', count);
+    
+    
+
+
+    // disables Pick a Name button from being clicked again
+    $('#pickName').addClass("disabled").prop("disabled", true);
 });
 
 // click event for reset button
@@ -92,8 +97,9 @@ $('#reset').click(function () {
         // remove red then green color from button
         $(this).removeClass('btn-danger');
         $(this).removeClass('btn-success');
-        // change named button color to grey
+        // change Pick a Name button back to blue
         $(this).addClass('btn-secondary');
     });
+    // enables Pick a Name button to be clickable
     $('#pickName').removeClass('disabled').prop('disabled', false);
 });
