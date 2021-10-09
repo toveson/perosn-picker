@@ -22,12 +22,14 @@ Link to live site: [Person Picker](https://person-picker.herokuapp.com/)
 
 * [Bootstrap](https://getbootstrap.com/)
 * [jQuery](https://jquery.com/)
+* [Express](https://expressjs.com/)
+<!-- * [dotenv](https://www.npmjs.com/package/dotenv) -->
 
 
 
 ## Usage
 
-Application is invoked locally by opening the code locally in browser
+Application is invoked locally by running `npm start` in the root folder from the terminal.
 
 ## License
 
