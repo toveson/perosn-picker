@@ -1,5 +1,6 @@
 // array to store names to be picked from
 const names = [];
+// number of times Pick a Name has been clicked
 let count = 0;
 // click event for entering names button
 $('#nameBtn').click(function () {
@@ -11,19 +12,21 @@ $('#nameBtn').click(function () {
     $('#nameInput').val('');
     // Creates dropdown button for the last name entered
     $('#names').append(
-        `<button class="btn btn-secondary btn-lg dropdown-toggle col m-1 nameChoices" type="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" id="${names[names.length - 1].name}">
-            ${names[names.length - 1].name}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="dropdown-item" id="${names[names.length - 1].name}TimesPicked"> Times picked: ${names[names.length - 1].timesPicked}</div>
+        `<div class="m-1">
+            <button class="btn btn-secondary btn-lg dropdown-toggle col nameChoices" type="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" id="${names[names.length - 1].name}">
+                ${names[names.length - 1].name}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-item" id="${names[names.length - 1].name}TimesPicked"> Times picked: ${names[names.length - 1].timesPicked}</div>
+            </div>
         </div>`
     );
-    console.log(names);
+    // console.log(names);
 });
 
 // click event for picking a random name
 $('#pickName').click(function () {
-    // adds to count tracking how many times a name has been picked
+    // adds to count tracking how many times Pick a Name has been clicked
     count++;
     // used to pick a person
     let pickingFrom = [];
@@ -70,21 +73,14 @@ $('#pickName').click(function () {
             for (let i = 0; i < names.length; i++) {
                 if (names[i].name == randomChoice) {
                     names[i].timesPicked++;
+                    // updates the button dropdown to show how mny times a user has been picked
+                    document.getElementById(randomChoice + 'TimesPicked').innerText = 'timesPicked: ' + names[i].timesPicked;
                 };
             };
-            // const winner = this.id + 'TimesPicked';
-            // console.log('winner name: ', winner);
         }
     });
-    // add logic to update times picked on dropdown of the name button here
-    // console.log('winner: ', document.getElementById(winner));
-    // $('#'+ winner +'').innerText = `Times picked: ${names[i].timesPicked}`;
-    // document.getElementById(winner).innerText = `Times picked: ${names[i].timesPicked}`;
     // console.log('picked: ', randomChoice);
     // console.log('count: ', count);
-    
-    
-
 
     // disables Pick a Name button from being clicked again
     $('#pickName').addClass("disabled").prop("disabled", true);
