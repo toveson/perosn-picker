@@ -55,7 +55,7 @@ $('#pickName').click(function () {
         pickingFrom[j] = pickingFrom[i];
         pickingFrom[i] = temp;
     };
-    // console.log('shuffled: ', pickingFrom);
+    console.log('shuffled: ', pickingFrom);
 
     // Picks a random name
     const randomChoice = pickingFrom[Math.floor(Math.random() * pickingFrom.length)];
